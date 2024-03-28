@@ -1,0 +1,32 @@
+{
+    "dexcom":{
+        "username":"<userID>",
+        "password":"<password>"
+    },
+    "alerts":{
+        "urg_low":{
+            "bottom_range":0,
+            "top_range":71,
+            "glucose_trend":"{5,6,7}",
+            "monkey":"https://api-v2.voicemonkey.io/trigger?token=<yourToken>&device=<yourDeviceName>"
+        },
+        "urg_high":{
+            "bottom_range":300,
+            "top_range":500,
+            "glucose_trend":"{1,2,3}",
+            "monkey":"https://api-v2.voicemonkey.io/trigger?token=<yourToken>&device=<yourDeviceName>"
+        },
+        "warning_low":{
+            "bottom_range":71,
+            "top_range":100,
+            "glucose_trend":"{7}",
+            "monkey":"https://api-v2.voicemonkey.io/trigger?token=<yourToken>&device=<yourDeviceName>"
+        },
+        "warning_high":{
+            "bottom_range":200,
+            "top_range":301,
+            "glucose_trend":"{1}",
+            "monkey":"https://api-v2.voicemonkey.io/trigger?token=<yourToken>&device=<yourDeviceName>"
+        }
+    }
+}
