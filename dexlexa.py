@@ -4,8 +4,8 @@ import requests
 from pydexcom import Dexcom
 
 
-def create_json_logger(filename):
-    """Creates a JSON formatter logger."""
+def create_logger(filename):
+    """Creates a logger."""
     formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s')
     handler = logging.FileHandler(filename)
     handler.setFormatter(formatter)
@@ -53,7 +53,7 @@ def alert_logic(glucose_value, glucose_trend, myalerts):
 
 def main():
     """Retrieves readings and triggers alerts."""
-    logger = create_json_logger("dexlexa.log")
+    logger = create_logger("dexlexa.log")
 
     try:
         # Load configuration
