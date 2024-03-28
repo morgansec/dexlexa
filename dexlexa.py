@@ -22,7 +22,7 @@ def get_reading(username, password):
     try:
         dexcom = Dexcom(username, password)
         return dexcom.get_current_glucose_reading()
-    except pydexcom.exceptions.DexcomError as e:
+    except Exception as e:
         logger.error(f"Error connecting to Dexcom: {e}")
         return None
 
@@ -33,16 +33,13 @@ def alexa_trigger(monkey_endpoint, glucose_value, glucose_trend):
         response = requests.get(monkey_endpoint)
         if response.status_code == 200:
             result = f"Alert triggered: bg={glucose_value}, trend={glucose_trend}"
-            logger.info(result)
-            return {"message": result}
+            return result
         else:
             result = f"Error triggering alert. Status code: {response.status_code}"
-            logger.error(result)
-            return {"error": result}
+            return result
     except requests.RequestException as e:
         result = f"Error connecting to voicemonkey.io: {e}"
-        logger.error(result)
-        return {"error": result}
+        return result
 
 
 def alert_logic(glucose_value, glucose_trend, myalerts):
@@ -65,12 +62,13 @@ def main():
 
         glucose_reading = get_reading(config["dexcom"]["username"], config["dexcom"]["password"])
         if glucose_reading:
-            print(config)
-            print(type(config))
             monkey_endpoint = alert_logic(glucose_reading.value, str(glucose_reading.trend), config.get("alerts"))
             if monkey_endpoint:
                 result = alexa_trigger(monkey_endpoint, glucose_reading.value, str(glucose_reading.trend))
-                logger.info(result)
+                if result.startswith("Alert"):
+                    logger.info(result)
+                else:
+                    logger.error(result)
             else:
                 logger.info(f"No alerts triggered: bg={glucose_reading.value}, trend={glucose_reading.trend}")
     except Exception as e:
