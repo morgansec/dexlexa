@@ -1,4 +1,4 @@
-Steps to get this working:
+#### Steps to get this working:
 
 1. Enable the voicemonkey.io skill in your alexa app.
 2. In the voicemonkey.io web portal, create routine triggers for each desired alert.
@@ -11,13 +11,13 @@ Note:  It is advisable to use something like logrotate to manage the dexlexa.log
 
 Dexcom trend values found on the share2nightscout project https://github.com/nightscout/share2nightscout-bridge:
 
-NONE: 0
-DoubleUp: 1
-SingleUp: 2
-FortyFiveUp: 3
-Flat: 4
-FortyFiveDown: 5
-SingleDown: 6
-DoubleDown: 7
-'NOT COMPUTABLE': 8
-'RATE OUT OF RANGE': 9
+- NONE: 0
+- DoubleUp: 1
+- SingleUp: 2
+- FortyFiveUp: 3
+- Flat: 4
+- FortyFiveDown: 5
+- SingleDown: 6
+- DoubleDown: 7
+- 'NOT COMPUTABLE': 8
+- 'RATE OUT OF RANGE': 9
