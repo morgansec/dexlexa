@@ -1,7 +1,5 @@
 ### Overview:
-If you find yourself sleeping through bg alerts, this project may help.
-You can use the voicemonkey.io project to trigger routines on your echo devices.
-These routines can make an announcement, play a siren, or anything else you choose.
+If you find yourself sleeping through bg alerts, this project may help. This script uses voicemonkey.io to trigger routines on your echo devices.  These routines can make announcements, play sounds (like sirens), or anything else you can dream up.
 
 ### Steps to get this working:
 - Enable the voicemonkey.io skill in your alexa app.
