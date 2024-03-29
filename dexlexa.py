@@ -61,7 +61,7 @@ def main():
             config = json.load(config_file)
 
         glucose_reading = get_reading(config["dexcom"]["username"], config["dexcom"]["password"])
-        if glucose_reading:
+        if glucose_reading is not None:
             monkey_endpoint = alert_logic(glucose_reading.value, str(glucose_reading.trend), config.get("alerts"))
             if monkey_endpoint:
                 result = alexa_trigger(monkey_endpoint, glucose_reading.value, str(glucose_reading.trend))
@@ -71,6 +71,9 @@ def main():
                     logger.error(result)
             else:
                 logger.info(f"No alerts triggered: bg={glucose_reading.value}, trend={glucose_reading.trend}")
+        else:
+            logger.info(f"No Reading. Check that sensor is connected")
+            
     except Exception as e:
         logger.error(f"An error occurred: {e}")
 
