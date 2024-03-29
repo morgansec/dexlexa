@@ -1,5 +1,9 @@
-#### Steps to get this working:
+### Overview:
+If you find yourself sleeping through bg alerts, this project may help.
+You can use the voicemonkey.io project to trigger routines on your echo devices.
+These routines can make an announcement, play a siren, or anything else you choose.
 
+### Steps to get this working:
 - Enable the voicemonkey.io skill in your alexa app.
 - In the voicemonkey.io web portal, create routine triggers for each desired alert.
 - Create the alexa routine for each alert. The voice monkey devices will show up as doorbells under your alexa app.
@@ -9,7 +13,8 @@
 Note:  It is advisable to use something like logrotate to manage the dexlexa.log file
 
 
-Dexcom trend values found on the share2nightscout project https://github.com/nightscout/share2nightscout-bridge:
+### Dexcom trend values:
+found on the share2nightscout project https://github.com/nightscout/share2nightscout-bridge:
 
 - NONE: 0
 - DoubleUp: 1
